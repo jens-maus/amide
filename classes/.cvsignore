@@ -1,0 +1,8 @@
+*.o
+*.elf
+*.gst
+*.info
+*.lnk
+*.map
+*.debug
+*.dump

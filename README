@@ -1,0 +1,49 @@
+/***************************************************************************
+
+ AmIDE - Amiga Integrated Development Environment
+
+ Copyright (C) 1998-2002 by Jens Langner <Jens.Langner@light-speed.de>
+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+ AmIDE Official Support Site :  http://amide.light-speed.de/
+ AmIDE OpenSource project    :  http://sourceforge.net/projects/amigaIDE/
+
+ $Id$
+
+***************************************************************************/
+
+AmIDE 0.4+ is hereby released as free software under the GNU General Public
+License. Please read this license (COPYING) and make sure you understand
+the terms and conditions of this license.
+
+AmIDE was compiled under SAS/C 6.58. You should find all required header
+files and non-standard link libraries in this archive. Nevertheless,
+here's the list of software packages used to create AmIDE:
+
+BetterString class     http://www.p2p-it.dk/duff/MCC_BetterString.LZX
+FlexCat                http://us.aminet.net/pub/aminet/dev/misc/FlexCat.lha
+MUI Developer archive  http://us.aminet.net/pub/aminet/dev/mui/mui38dev.lha
+MUI User archive       http://us.aminet.net/pub/aminet/util/libs/mui38usr.lha
+NList#? MUI classes    http://home.t-online.de/home/sebauer/
+PopUpMenu library      http://www.boing.nu/scripts/download.pl?pm/pmuser.lha
+Toolbar class          http://us.aminet.net/pub/aminet/dev/mui/MCC_Toolbar.lha
+
+If you want to develop this program further, please register with SourceForge.net
+and notify me at Jens.Langner@light-speed.de. The homepage for the AmIDE
+OpenSource project is located at http://amigaIDE.sourceforge.net/
+
+Jens Langner
+August, 2002

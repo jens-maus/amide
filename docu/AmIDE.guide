@@ -1,0 +1,544 @@
+@database amide
+@width 78
+@wordwrap
+
+@node MAIN "AmIDE"
+
+
+                               @{b}AmIDE v0.3ß@{ub}
+
+                  @{b}@{fg shine}Am@{fg text}iga @{fg shine}I@{fg text}ntegrated @{fg shine}D@{fg text}evelopment @{fg shine}E@{fg text}nvironment@{ub}
+
+                 Copyright ©`1998-2001 by @{" Jens Langner " LINK "AUTHOR"}
+
+                     !!  This is a @{" BETA " link BETA} version !!
+
+ @{b}Introduction@{ub}
+   @{" What is AmIDE?         " link WHAT}   - What is AmIDE
+   @{" Author                 " link AUTHOR}   - That`s me :-)
+   @{" Distribution           " link DISTRIBUTION}   - The Way I spread this Stuff
+   @{" Thanks                 " link THANX}   - I want to thank for help...
+   @{" Copyright Notes        " link COPYRIGHT}   - What you have to know !
+
+ @{b}The Integrated Development@{ub}
+   @{" Requirements           " link REQUIREMENTS}   - Requirements for running AmIDE ?
+   @{" Incompatibilities?     " link INCOMPATIBLE}   - Incompatible ?
+   @{" Installation           " link INSTALLATION}   - How to install AmIDE
+   @{" Starting AmIDE         " link START}   - Getting started
+   @{" Usage                  " link USAGE}   - How to use this application
+
+ @{b}Additional Information@{ub}
+   @{" Important BETA info    " link BETA}   - Information about THIS Beta version
+   @{" Todo                   " link TODO}   - Is there something left ?
+   @{" History                " link HISTORY}   - The history so far
+   @{" Known Bugs             " link KNOWNBUGS}   - Shit!!!
+
+@endnode
+@node WHAT "What is AmIDE ?"
+
+  @{b}What is AmIDE ?@{ub}
+
+    There is no doubt that every modern operation system needs a flexible, compiler independent
+    and uptodate development environment.
+    On other platforms there are things like KDevelop (Linux) but on the amiga platform such an
+    application or better called "Integrated Development Environment" is missing.
+    Sure there are some similir applications like the GUI of STORM-C or PManager but they have some
+    very important things missing.
+
+    This was the point where I started to think about such an environment in late 1998. After some
+    brainstorming a project called "SASC-GUI" was born. But in December 1999 I decided to rename this
+    project "AmIDE" not only because it looks better but I want develop this application that other
+    developers on the amiga-platform can use more than one compiler in their projects.
+
+    So AmIDE is being developed to give either me and other developers a good looking graphical user
+    interface for compilers and also a very flexible project management.
+
+  @{b}Features !@{ub}
+
+    - multiple project handling
+    - graphical message browser for error/warning messages
+    - self-configurable edit/viewtool
+    - filetype handling/configuration
+    - highly configurable MUI-Interface
+    - integrated touch/make mechanisms (no makefiles needed)
+    - using standard debugging tools
+
+    and many other features not implemented yet....
+
+  @{b}The vision !@{ub}
+
+    My vision for the future of AmIDE is to enhance that environment to handle all known amiga-compatible
+    compilers and also integrate more tools/utilities into AmIDE so that AmIDE will be one day the ultimate
+    development tool for the amiga platform where developers of amiga programs can profit of the features
+    of AmIDE.
+
+  @{b}Your help !@{ub}
+
+    There is also no doubt that I need help from all users of AmIDE. It will be nice to receive all your
+    suggestions and bugreports @{"directly" link AUTHOR} because I do not want to develop AmIDE only for
+    myself. It should be a application for many people with many ideas and needs.
+
+    So please help me developing a new and very flexible application for the amiga...
+
+                                                                                      Jens Langner
+                                                                                      © April 2000
+
+@endnode
+@node AUTHOR "That`s me ;)"
+
+  @{b}Snail Mail@{ub}
+    Jens Langner
+    Bergstrasse 68
+    01069 Dresden
+    Germany
+
+  @{b}Phone@{ub}
+    Telephone: +49/351-4721080
+    Fax......: +49/351-4721081
+    Mobile...: +49/172-4452254
+
+  @{b}E-Mail@{ub}
+    Jens.Langner@light-speed.de
+
+  @{b}WWW@{ub}
+    http://damato.home.pages.de/
+
+  @{b}IRC@{ub}
+    Nick:     DaMato
+    Channel:  #amigager
+
+@endnode
+@node DISTRIBUTION "Distribution of AmIDE"
+
+  AmIDE will be distributed and supported by
+
+  @{b}LightSpeed Communications GbR@{ub}
+    Jens Langner
+    Bergstraße 68
+    01069 Dresden
+    Germany
+
+  @{b}WWW@{ub}
+    http://www.light-speed.de/
+
+@endnode
+@node THANX "I want to thank..."
+
+  @{b}Betatesters@{ub}
+
+    Jens Tröger
+
+  @{b}Others@{ub}
+
+    Olaf `Olsen` Barthel
+    Berhard Möllemann aka ZZA
+    Andrei Chereshnev
+
+    ... and all people on #amigaGER for their great help !!
+
+@endnode
+@node COPYRIGHT "Copyright information"
+
+    @{b}COPYRIGHT: @{ub}
+    ==========
+
+    a. This software is E-Mail Ware. That means that if you are using this
+       software you at least send the @{" author " LINK "AUTHOR"} a E-mail that
+       you are using his software and your opinion about it. You can also
+       send direct mail or presents ;)
+
+    b. This software is copyrighted by @{" Jens Langner " LINK "AUTHOR"}. That means that you
+       are NOT ALLOWED to modify the program(s) and documentation in any way.
+       Especially you MUST NOT REMOVE the documentation or any other file in
+       the distribution.
+
+    c. You are NOT allowed to use this software or any part of it for any other
+       purpose than that one mentioned in its documentation, this also includes
+       any fonts,  images or samples.  If the developer(s)  did NOT include the
+       source code of the program(s) in this package you are NOT allowed to de-
+       compile any part of it.
+
+    @{b}DISTRIBUTION: @{ub}
+    =============
+
+    This package is freely distributable.  That means  you are allowed to re-
+    distribute this package as long as you follow these points:
+
+    a. Any re-distribution  has to include  all files in this archive without
+       any modifications. You are NOT allowed to add any files to the archive.
+
+    b. This package may be freely distributed via BBSs, InterNet/UseNet,
+       software libraries such as Fred Fish's and Aminet CD-ROM, and other
+       similar electronic channels.
+
+    c. Disk magazines and services that charge extra for file transfers or
+       sell software on CDs may NOT distribute it without written permission
+       by me!
+
+    @{b}DISCLAIMER: @{ub}
+    ===========
+
+    By using this product, you accept the FULL responsibility for any damage
+    or loss that might occur through its use or the inability to use it. The
+    author can NOT be held responsible.
+
+    IMPORTANT: The author do NOT give any guarantee for the quality and
+               the sinn of THIS product!
+
+@endnode
+@node REQUIREMENTS "Requirements"
+
+  @{b}Requirements for running AmIDE@{ub}
+
+    - any amiga compatible computer (A4000/3000/2000/1200/UAE etc.)
+    - Kickstart v2.0+ (v36) or better
+    - 68020 or better processor
+    - a minimum of approx. 1.0MB RAM
+    - installed MUI v3.8+
+    - popupmenu.library v9+
+    - BetterString.mcc v11+
+    - InfoText.mcc v15+
+    - NListtree.mcc v18+
+    - NList.mcc v19+
+    - NListview.mcc v19+
+    - Toolbar.mcc v15+
+    - a supported compiler (SAS/C etc.)
+    
+@endnode
+@node INCOMPATIBLE "Incompatible?"
+
+  @{b}Any Incompatibilities ?@{ub}
+
+   At the moment, AmIDE is only compatible to the famous SAS/C compiler.
+   Later version will support more compilers like STORM-C, vbcc, gcc a.s.o.
+
+@endnode
+@node INSTALLATION "How to install AmIDE"
+
+  @{b}How to install AmIDE@{ub}
+
+  Actually there is no install script for AmIDE, so you have to install AmIDE by hand doing the
+  following steps:
+
+  1. Copy all library from libs and libs/MUI to their pathes
+  2. Create a Directory "AmIDE" whereever you want i.e. "Work:AmIDE"
+  3. Copy the whole directory (without libs) to this directory.
+
+  After this 3 steps AmIDE should work correctly... isn`t it easy ? :-)
+
+@endnode
+@node START "How to start AmIDE"
+
+  @{b}How to start AmIDE@{ub}
+
+   Like every other amiga application AmIDE can be either started by double-clicking onto
+   it`s icon or simply start AmIDE using a amiga shell.
+
+   After you started AmIDE a MUI window should pop up with a nice looking toolbar in it.
+   This is the MainBar window where you can create/load/save projects and also directly
+   compile your opened projects.
+
+   From here you can directly go to the @{"How to use AmIDE" link USAGE} part to get a
+   short overview on how AmIDE will work and act.
+
+@endnode
+@node USAGE "How to use AmIDE"
+
+  @{b}How to use AmIDE@{ub}
+
+   After you started AmIDE by double-clicking on it`s icon or just starting it within a amiga
+   shell a MUI windown with a toolbar should popup.
+
+   @{b}* Main window@{ub}
+
+   This is the main window of AmIDE from where you can start creating/loading/saveing a project
+   and also can compile/run and start debugging your projects.
+   Most of the buttons are disabled if you started AmIDE and they will be enabled if you create
+   or load a project.
+
+   You will notice that this main window looks like the one used in the STORM-C development
+   environment.
+
+   This similar outfit was used because it`s a good idea and beginning for developing software
+   and also AmIDE should be easily allow people to change from STORM-C Env to AmIDE.
+
+   @{b}* Project window@{ub}
+
+   After you have created or loaded a project you will find yourself in a project window with
+   another toolbar to allow you to add/remove/touch and compile files in your project.
+   What you have not noticed yet is that beside your creation/loading of the project AmIDE has
+   also loaded the predefined filetypes. You can easily modify this filetype to your needs by
+   opening the Filetype window using the menu (Settings->Project Filetypes).
+
+   Now you are able to add more files to your project by either using the menuitem or just clicking
+   on the file toolbar image in the window. After you have added a file it will be checked with
+   your fileytypes settings and perhaps the dependencies will be checked.
+
+   You are also able to view detailed information about a file in your project tree. Just click on the
+   file and use the third toolbar image to open a file information window where all necessary
+   information will be showed and where you also can change the edit/viewtool or modify the flags
+   for compilation a.s.o.
+   But you can also right click on this file and a popupmenu will come up with all the options you also
+   have on the toolbar.
+
+   if you double-click on one of your files in the project tree AmIDE will try to find the tool
+   it should open by a double-click.
+   First AmIDE will look into the file`s own prefs (FileInfo window) and then it will fall-back to
+   the projects preferences (Settings->Project Environment)
+
+   @{b}* Message browser window@{ub}
+
+   If you are compiling or makeing a project/file a window called "message browser" will pop up
+   and will show you detailed information about the progress of the compilation
+   After the compilation is finished you are able to try to start the projects executable by
+   clicking on "Run".
+
+   .... more documentation will follow ... THIS IS BETA !!!!
+
+@endnode
+@node BETA "Important BETA notice"
+
+  @{b}THIS IS BETA SOFTWARE@{ub}
+
+   The version of AmIDE where you actually reading this .guide file is in BETA stage. This means that
+   many parts of AmIDE are incomplete or not acting like they should (bugs).
+
+   The following list should give you an advice on how to use AmIDE in that beta stage:
+
+   @{b}* Using AmIDE@{ub}
+
+   - if you remove a file from your project tree the file will NOT be deleted. It still remains on
+     it`s place.
+     So if you try to make a project after removing a object-file you will notice that the project
+     will be linked and the linker will put out an error-message because a object-file is missing
+     -> so just touch the source-file and AmIDE will compile this object-file again after you try
+     to make this project again
+
+   - the error/warning messages in the message-browser aren`t clickable within this betaversion.
+
+   @{b}* Using SAS/C with AmIDE@{ub}
+
+   - it`s important that an assign "sc:" is set to the SAS/C directory tree where you have installed
+     SAS/C
+
+   - if you want to make your project you have to add the "c.o" startup-code directly to the project
+     tree. It`s important that this c.o is stated on the first place in the list of object-files in
+     your project.
+
+   - you need to add the "sc.lib" an "amiga.lib" by hand to your projects.
+
+   - please take a look at the example in the example directory. There you will get an overview on
+     how to make a project with AmIDE
+
+
+   Many of those incomplete things are under construction and will be implemented within one of the
+   next upcoming releases.
+
+@endnode
+@node TODO "What ist left to do"
+
+  @{b}Personal aims@{ub}
+    - locale support
+    - add support for all known amiga compilers
+    - add Rexx-Port
+    - get some nice graphics into AmIDE (logo etc....)
+    - include a own revision-bumper into AmIDE
+
+  @{b}Suggestions by others@{ub}
+    - the messagebrowser should be able to only show the compiled files [Stefan Kost]
+    - scripts should be includeable in projects [Linus McCabe]
+    - object-files should be copied in their own folder [Linus McCabe]
+    - arguments and stacksize settings for executables [Linus McCabe]
+    - a built-in TextEditor (TextEditor.mcc) [Mike Carter]
+    - put a listview below the Mainbar with all opened projects [Gilles Burdett]
+    - include support for GUI builders (MUIBuilder etc.) [David Erman]
+    - full keyboard-shortcut support [Kamil Burzynski]
+    - support other editors (e.g. STORM-C editor)
+    - include full RCS/CVS support in AmIDE
+
+  @{b}Does this make sense ?@{ub}
+
+    If you have any suggestions or bugreports please @{" contact me " link AUTHOR} immediatly so that I can put this
+    on my TODO list.
+
+@endnode
+@node HISTORY "The History of AmIDE"
+
+@{b}History: @{ub}
+~~~~~~~~
+
+  @{u}0.3ß (March 04, 2001)@{uu}
+
+    March 04, 2001
+      - added sasc.module developer stuff to the release-archive.
+      - removed bug that messed up the first line of the MsgBrowser
+      - now that NListtree seems to be stable I ported AmIDE to use NListtree.mcc instead of Listtree.mcc
+      - modified sources to be more CVS friendly
+      - splitted sources into more separated modules
+
+    August 2000 - January 2001
+      - did some work abroad in india (New Delhi)
+
+    June 28, 2000
+      - fixed some nasty null-pointer enforcer-hits in the compiler section.
+      - today was my sourcecode-reorder-day. I changed some styles and gained some kB of code :)
+    June 27, 2000
+      - the descriped changes also removed the enforcer-hit mentioned in the "known Bugs" section.
+      - rewritten the compiler-related routines. AmIDE starts a subtask if the compiler gets started
+        This makes AmIDE more asynchron in handling output/inputs from/to the compiler.
+    June 07, 2000
+      - all compiler-related stuff has been moved into seperated shared libraries.
+        I also defined a API for people who want to write their own compiler-modules.
+        Now it should be easily possible to include other compilers into AmIDE. I will start
+        writing new modules for STORM/C, gcc asap.
+    June 06, 2000
+      - fixed a bug in the checking routine if a file doesn`t exists anymore
+    May 27, 2000
+      - the modules will be loaded correctly now.
+      - finished the API definition for external compiler-modules.
+        This will allow programmers to write their own module for their used compiler.
+
+  @{u}0.2ß (April 13, 2000)@{uu}
+
+    April 12, 2000
+      - now the edittool/viewtool will be started by SystemTags and asynchron
+      - the "Run" button in the MessageBrowser works now.
+      - if a file is getting compiled and a object-file is be created it will be automatically
+        added to the projecttree now.
+    April 10, 2000
+      - all entries in a project will be checked if a project is loaded and an error-requester
+        will be displayed if a file doesn`t exists anymore.
+    April 09, 2000
+      - the listtree topology will be saved correctly now.
+      - activating the contextmenu also sets the Listtree_Activ to the entry under the mouse-pos.
+      - added all needed stuff to the new context-menu
+    April 04, 2000
+      - the ContextMenu works mouse-relative now
+      - replaced the ugly MUI-ContextMenu in the Listtree with a nice lookin PopupMenu
+    April 03, 2000
+      - load/save methods also handle the edit/view tool stuff now
+    April 02, 2000
+      - added Edit/View Tool handling to FileInfo window
+    April 01, 2000
+      - added Project environment window to modify all project related settings
+      - added Edit-Tool and mouse-button selection to the filetypes
+    March 28, 2000
+      - fixed a small bug in the make & link methods in the project
+    March 19, 2000
+      - the open/close status of each folder will be saved/loaded now
+      - added "Select executeable" to project. This is a must if you want to link a project
+      - added link methods to msgbrowser - all objectfiles and libs will be linked together correctly
+    March 18, 2000
+      - added linkable flag
+    March 17, 2000
+      - make&makeall should work correctly and faster now
+      - optimized the scanning of dependencies
+      - added make/make all to project
+    March 16, 2000
+      - added compile to project
+      - MsgBrowser will now be updated correctly while compile a file
+    March 15, 2000
+      - added busy and status objects to MsgBrowser
+      - reworked the Warning-Text scanning/parsing
+      - added Error-Nr & Line-Nr Column to MsgBrowser Listview
+    March 13, 2000
+      - all depencies will be scanned depending on the depcheck flag of each file
+        so all depencies will be loaded correctly of each project-file.
+      - the (touch all) method now takes care of the touchable flag of each file
+      - compiling is now done by the project class and not by the msgbrowser class
+      - now the D&D in the ProjectTree also take care of the binding flag of each file
+    March 12, 2000
+      - reworked the file information gui to show up all important information
+      - now unrecognized files will be added into a "Others" drawer.
+      - completly reworked the depency checking - should be saver now.
+      - removed old filetype recogniction
+      - added the load/save methods of the filetype class directly into the project
+    March 11, 2000
+      - added load/save methods to filetype class
+      - modified filetype class to better handle D&D
+    March 10, 2000
+      - added filetype class to give the user the ability to control the filetypes by hand.
+        This will also include a complete filetype recogniction. Also each project can
+        have his own filetypes.
+    March 09, 2000
+      - added support for cursorkeys in the listtree
+      - added (touch) & (touch all) methods to project and enabled the popupmenu
+    March 08, 2000
+      - sorted/commented the source-code. Now everything should be clearer now :)
+    March 06, 2000
+      - added save/load methods to project
+      - optimized the listtree output so that the filesizes will not be recalculated each time
+        the listtree is going to be drawn. So I gained more speed :)
+      - reworked the filetype recogniction (need a complete rewrite!)
+    March 05, 2000
+      - fixed some minor bugs in the depency-scanning methods
+      - reimplemented the project assistent for creating new projects
+    March 04, 2000
+      - added other popup menus to the mainbar toolbars
+    March 02, 2000
+      - added more popup menus for compile/make etc.
+      - removed lots of enforcer hits within the listtree methods/hooks.
+    March 01, 2000
+      - added about window for showing program information
+      - fixed fileinfo window to show correct entry if another entry gets active in the
+        listtree
+    February 29, 2000
+      - added file information window which shows all information about a specific file
+      - added depency information into fileinfo
+    February 28, 2000
+      - added new little toolbar to project object
+      - added support for popupmenu.library (Add/Remove/Touch file(s))
+    February 27, 2000
+      - the same file can`t be added two times anymore
+      - added depency check with scanning of each header and sourcefile
+      - depencies will be saved into a seperated list
+    February 25, 2000
+      - finished the whole rewrite of AmIDE with BOOPSI. Now it`s time to get new features
+        and bugfixes into AmIDE
+    February 24, 2000
+      - added MessageBrowser Class
+    February 23, 2000
+      - 90% of all old parts are now completly rewritten in BOOPSI
+        also the multiple project windows are working now -> OO rulez ! :)
+
+    December 1999-February 2000
+      - ... puh was on holiday in Australia ... back in cold Germany :((
+    August 1999
+      - started to rewrite the whole source in BOOPSI language
+    July 1999
+      - the project was nearly dead because the sourcecode was getting to complicated,
+        also I wanted to add multiple project windows what is nearly impossible within an
+        non-object oriented environment. -> BOOPSI is the solution :)
+
+  @{u}0.1ß (January-July 1999)@{uu}
+    - drag&drop in listtree works now and also with respect to filetypes.
+    - modified the construction hook for better string allocation
+    - now the listtree displays the correct text and codesize for folders and with
+      a different color.
+    - the listtree now also shows the current filesize and codesize of a module.
+    - finished the first working betaversion with NList and Listtree class.
+    - added some nice NList images to show differences between Warnings and
+      Errors.
+    - optimized the pipe mechanism to gain more speed and to suppress the CON:
+      output.
+    - The pipe mechanism now works correctly (thanks to Olaf Barthel and Andrei
+      Chereshnev)
+
+  @{u}0.01ß (August-December 1998)@{uu}
+    - started to think about the layout of the GUI and the PIPE mechanism to
+      get the output of SAS/C
+
+@endnode
+@node KNOWNBUGS "Known Bugs!"
+
+  @{b}Any known Bugs ?@{ub}
+
+    - while compiling some files and putting messages into the messagebrowser sometimes the
+      NListview messes up the whole MUI window with some strange graphics. Don`t know if this
+      is a fault of NListview or AmIDE. If you have any idea, let me know !
+
+    If you find a bug or have a solution please send the @{"author" LINK "AUTHOR"} a E-Mail
+    with a complete description about the problem and a complete list
+    about your system configuration. Thanks !
+
+@endnode

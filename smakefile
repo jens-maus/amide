@@ -1,0 +1,170 @@
+#/***************************************************************************
+#
+# AmIDE - Amiga Integrated Development Environment
+#
+# Copyright (C) 1998-2002 by Jens Langner <Jens.Langner@light-speed.de>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# AmIDE Official Support Site :  http://amide.light-speed.de/
+# AmIDE OpenSource project    :  http://sourceforge.net/projects/amigaIDE/
+#
+# $Id$
+#
+#***************************************************************************/
+
+TARGET = AmIDE
+
+# Programs
+CC  = sc
+CP  = copy
+RM  = delete quiet
+FC  = flexcat
+
+# Directories
+PREFIX      =
+CLASSDIR    = $(PREFIX)classes
+LOCALE      = $(PREFIX)locale
+
+# Compiler/Linker flags
+CPU      = 68020
+CDEFS    = `rx "say 'DEF __AIDE_VERDATE=' || '22'x ||\
+  right(date(S),2)*1'.'substr(date(S),5,2)*1'.'left(date(S),4) ||\
+  '22'x || ' DEF __AIDE_VERDAYS=' || date('I')"`
+WARN     = WARN=ALL IGNORE=51,61,148,165,178,212,306
+OPTFLAGS = STRIPDEBUG OPT OPTSIZE OPTCOMPLEXITY=5 OPTDEPTH=3 OPTINLOCAL\
+  OPTGO OPTLOOP OPTPEEP #OPTSCHED
+DEBUG    = NOSTRIPDEBUG NOOPT DEF=DEBUG DEBUG=LINE
+CFLAGS   = RESOPT NOVER PARM=R DATA=NEAR CODE=FAR NOSTKCHK STRINGMERGE\
+  IDLEN=60 ERRORREXX INCLUDEDIR=$(CLASSDIR) \
+  DEF=__USE_SYSBASE UTILLIB CPU=$(CPU) $(WARN) $(OPTFLAGS) $(DEBUG)
+LNKFLAGS = RESOPT NOVER LINK SMALLCODE SMALLDATA UTILLIB LIB lib:debug.lib\
+  NOICONS "LINKOPT=MAP $(TARGET).map,fhx FWIDTH 32 PWIDTH 32 SWIDTH 32"\
+  NOCHECKABORT $(OPTFLAGS) $(DEBUG) 
+
+# CPU and DEBUG can be defined outside, defaults to above
+# using e.g. "smake DEBUG= CPU=68060" produces optimized non-debug 68060 version
+#
+# OPTFLAGS are disabled by DEBUG normally!
+#
+# ignored warnings are:
+#  51 C++ comment detected                                 -- we agreed to use them
+#  61 undefined struct/union tag "tag-name"                -- in include files
+# 148 use of incomplete struct/union/enum tag "name"       -- in include files
+# 165 use of narrow type in prototype                      -- very unlikely portability problem
+# 178 indirect call without indirection operator           -- only old-style support
+# 212 item "name" already declared                         -- in include files
+# 306 .. function inlined                                  -- disturbs
+
+# Objects
+
+CLASSES = $(CLASSDIR)/Project.o $(CLASSDIR)/MsgBrowser.o $(CLASSDIR)/FileType.o\
+          $(CLASSDIR)/MainBar.o $(CLASSDIR)/FileTypeTree.o $(CLASSDIR)/ProjectTree.o\
+          $(CLASSDIR)/FileInfo.o
+
+OBJS= Main.o CompClient.o $(CLASSES)
+
+#
+
+default: $(TARGET)
+
+# Default rule
+
+.c.o:
+  @echo "*e[32mCompiling $*.c*e[0m"
+  @$(CC) $(CFLAGS) $<
+
+#
+
+.ct.catalog:
+  @echo "*e[33mGenerating $*.catalog*e[0m"
+  @$(FC) $(LOCALE)/YAM.cd $*.ct CATALOG $*.catalog
+
+#
+
+$(TARGET): $(OBJS)
+  @echo "*e[32mLinking AmIDE*e[0m"
+  @$(CC) $(LNKFLAGS) TO $@ WITH <<
+  $(OBJS)
+  <
+
+#
+
+clean: # leaves final YAM exe
+  -$(RM) $(OBJS) AmIDE.lnk AmIDE.map AmIDE_locale.c AmIDE_locale.h
+
+#
+
+cleanall: clean
+  -$(RM) $(TARGET)
+
+#
+
+copy:
+  $(CP) $(TARGET) AmIDE:
+
+#
+
+## MAIN DEPENDENCIES ###################
+
+Main.o: Main.c Global.h CompClient.h Main.h $(CLASSDIR)/MainBar.h\
+  $(CLASSDIR)/Project.h $(CLASSDIR)/ProjectTree.h AmIDE_rev.h Headers.h\
+  modules/api/clib/amide_api_protos.h modules/api/pragma/amide_api_pragmas.h modules/api/amide/amide_api.h
+
+CompClient.o: CompClient.c Global.h CompClient.h Main.h $(CLASSDIR)/MsgBrowser.h \
+  $(CLASSDIR)/Project.h AmIDE_rev.h Headers.h \
+  modules/api/clib/amide_api_protos.h modules/api/pragma/amide_api_pragmas.h modules/api/amide/amide_api.h
+
+AmIDE_locale.c: YAM_locale.h
+AmIDE_locale.h: $(LOCALE)/AmIDE.cd C_h.sd C_c.sd
+  @echo "*e[33mConverting Catalog with flexcat*e[0m"
+  @$(FC) $(LOCALE)/AmIDE.cd AmIDE_locale.h=C_h.sd AmIDE_locale.c=C_c.sd
+
+## CLASS DEPENDENCIES ##################
+
+$(CLASSDIR)/Project.o: $(CLASSDIR)/Project.c Global.h $(CLASSDIR)/FileInfo.h\
+  $(CLASSDIR)/FileType.h Main.h $(CLASSDIR)/MsgBrowser.h $(CLASSDIR)/Project.h\
+  $(CLASSDIR)/ProjectTree.h AmIDE_rev.h Headers.h \
+  modules/api/clib/amide_api_protos.h modules/api/pragma/amide_api_pragmas.h modules/api/amide/amide_api.h
+
+$(CLASSDIR)/MsgBrowser.o: $(CLASSDIR)/MsgBrowser.c Global.h CompClient.h\
+  $(CLASSDIR)/ProjectTree.h Main.h $(CLASSDIR)/MsgBrowser.h\
+  $(CLASSDIR)/MsgBrowser_images.h $(CLASSDIR)/FileType.h $(CLASSDIR)/Project.h\
+  AmIDE_rev.h Headers.h\
+  modules/api/clib/amide_api_protos.h modules/api/pragma/amide_api_pragmas.h modules/api/amide/amide_api.h
+
+$(CLASSDIR)/FileType.o: $(CLASSDIR)/FileType.c Global.h $(CLASSDIR)/FileType.h\
+  $(CLASSDIR)/FileTypeTree.h Main.h AmIDE_rev.h Headers.h\
+  modules/api/clib/amide_api_protos.h modules/api/pragma/amide_api_pragmas.h modules/api/amide/amide_api.h
+
+$(CLASSDIR)/MainBar.o: $(CLASSDIR)/MainBar.c Global.h Main.h\
+  $(CLASSDIR)/MainBar.h $(CLASSDIR)/Project.h AmIDE_rev.h Headers.h\
+  modules/api/clib/amide_api_protos.h modules/api/pragma/amide_api_pragmas.h modules/api/amide/amide_api.h
+
+$(CLASSDIR)/FileTypeTree.o: $(CLASSDIR)/FileTypeTree.c Global.h\
+  $(CLASSDIR)/FileTypeTree.h Main.h AmIDE_rev.h Headers.h\
+  modules/api/clib/amide_api_protos.h modules/api/pragma/amide_api_pragmas.h modules/api/amide/amide_api.h
+
+$(CLASSDIR)/ProjectTree.o: $(CLASSDIR)/ProjectTree.c Global.h\
+  $(CLASSDIR)/FileTypeTree.h $(CLASSDIR)/ProjectTree.h Main.h\
+  $(CLASSDIR)/Project.h AmIDE_rev.h Headers.h\
+  modules/api/clib/amide_api_protos.h modules/api/pragma/amide_api_pragmas.h modules/api/amide/amide_api.h
+
+$(CLASSDIR)/FileInfo.o: $(CLASSDIR)/FileInfo.c Global.h\
+  $(CLASSDIR)/FileInfo.h $(CLASSDIR)/ProjectTree.h Main.h AmIDE_rev.h \
+  Headers.h\
+  modules/api/clib/amide_api_protos.h modules/api/pragma/amide_api_pragmas.h modules/api/amide/amide_api.h
+
+#######################################

@@ -1,0 +1,33 @@
+-----------------------------
+AmIDE Open Source - TODO List
+-----------------------------
+
+$Id$
+$Source$
+
+Things to do or at least think about doing in the future.
+
+global
+------
+    * provide some simple Texteditor with TextEditor.mcc
+    * include TipOfTheDay mmc class to show tips for AmIDE
+    * do some work on a AREXX interface
+    * give some compatibility to GoldED
+    * provide CVS interface with GUI
+    * localize application with flexcat
+    * general optimizations (faster & smaller)
+    * provide some interface to Barfly as a debugger!
+    * morphos & OS4 port
+
+sasc.module
+-----------
+    * make module more compatible with SAS/C
+    * write own SASCOPTIONS GUI (preferences)
+
+gcc.module
+----------
+    * NOT PLANNED YET
+
+vbcc.module
+-----------
+    * NOT PLANNED YET

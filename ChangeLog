@@ -1,0 +1,183 @@
+-----------------------------
+AmIDE Open Source - ChangeLog
+-----------------------------
+
+$Id$
+$Source$
+
+2002-08-24  Jens Langner <Jens.Langner@light-speed.de>
+
+    * removed rest of the savage.lib dependencies from the
+      whole AmIDE source tree. Now AmIDE should be fully C
+      without the requirement of the obsolete savage.lib
+
+2002-08-23  Jens Langner <Jens.Langner@light-speed.de>
+
+    * removed savage.lib dependencies from sasc.module to
+      make it easier to understand/useable.
+    * reorganized source-code for open-source (GPL) release
+      that includes a new smakefile along with a better
+      directory structure.
+
+-- old changelog follows ----------------------------------------------------
+
+0.3ß (March 04, 2001)
+
+    March 04, 2001
+      - added sasc.module developer stuff to the release-archive.
+      - removed bug that messed up the first line of the MsgBrowser
+      - now that NListtree seems to be stable I ported AmIDE to use NListtree.mcc instead of Listtree.mcc
+      - modified sources to be more CVS friendly
+      - splitted sources into more separated modules
+
+    August 2000 - January 2001
+      - did some work abroad in india (New Delhi)
+
+    June 28, 2000
+      - fixed some nasty null-pointer enforcer-hits in the compiler section.
+      - today was my sourcecode-reorder-day. I changed some styles and gained some kB of code :)
+    June 27, 2000
+      - the descriped changes also removed the enforcer-hit mentioned in the "known Bugs" section.
+      - rewritten the compiler-related routines. AmIDE starts a subtask if the compiler gets started
+        This makes AmIDE more asynchron in handling output/inputs from/to the compiler.
+    June 07, 2000
+      - all compiler-related stuff has been moved into seperated shared libraries.
+        I also defined a API for people who want to write their own compiler-modules.
+        Now it should be easily possible to include other compilers into AmIDE. I will start
+        writing new modules for STORM/C, gcc asap.
+    June 06, 2000
+      - fixed a bug in the checking routine if a file doesn`t exists anymore
+    May 27, 2000
+      - the modules will be loaded correctly now.
+      - finished the API definition for external compiler-modules.
+        This will allow programmers to write their own module for their used compiler.
+
+0.2ß (April 13, 2000)
+
+    April 12, 2000
+      - now the edittool/viewtool will be started by SystemTags and asynchron
+      - the "Run" button in the MessageBrowser works now.
+      - if a file is getting compiled and a object-file is be created it will be automatically
+        added to the projecttree now.
+    April 10, 2000
+      - all entries in a project will be checked if a project is loaded and an error-requester
+        will be displayed if a file doesn`t exists anymore.
+    April 09, 2000
+      - the listtree topology will be saved correctly now.
+      - activating the contextmenu also sets the Listtree_Activ to the entry under the mouse-pos.
+      - added all needed stuff to the new context-menu
+    April 04, 2000
+      - the ContextMenu works mouse-relative now
+      - replaced the ugly MUI-ContextMenu in the Listtree with a nice lookin PopupMenu
+    April 03, 2000
+      - load/save methods also handle the edit/view tool stuff now
+    April 02, 2000
+      - added Edit/View Tool handling to FileInfo window
+    April 01, 2000
+      - added Project environment window to modify all project related settings
+      - added Edit-Tool and mouse-button selection to the filetypes
+    March 28, 2000
+      - fixed a small bug in the make & link methods in the project
+    March 19, 2000
+      - the open/close status of each folder will be saved/loaded now
+      - added "Select executeable" to project. This is a must if you want to link a project
+      - added link methods to msgbrowser - all objectfiles and libs will be linked together correctly
+    March 18, 2000
+      - added linkable flag
+    March 17, 2000
+      - make&makeall should work correctly and faster now
+      - optimized the scanning of dependencies
+      - added make/make all to project
+    March 16, 2000
+      - added compile to project
+      - MsgBrowser will now be updated correctly while compile a file
+    March 15, 2000
+      - added busy and status objects to MsgBrowser
+      - reworked the Warning-Text scanning/parsing
+      - added Error-Nr & Line-Nr Column to MsgBrowser Listview
+    March 13, 2000
+      - all depencies will be scanned depending on the depcheck flag of each file
+        so all depencies will be loaded correctly of each project-file.
+      - the (touch all) method now takes care of the touchable flag of each file
+      - compiling is now done by the project class and not by the msgbrowser class
+      - now the D&D in the ProjectTree also take care of the binding flag of each file
+    March 12, 2000
+      - reworked the file information gui to show up all important information
+      - now unrecognized files will be added into a "Others" drawer.
+      - completly reworked the depency checking - should be saver now.
+      - removed old filetype recogniction
+      - added the load/save methods of the filetype class directly into the project
+    March 11, 2000
+      - added load/save methods to filetype class
+      - modified filetype class to better handle D&D
+    March 10, 2000
+      - added filetype class to give the user the ability to control the filetypes by hand.
+        This will also include a complete filetype recogniction. Also each project can
+        have his own filetypes.
+    March 09, 2000
+      - added support for cursorkeys in the listtree
+      - added (touch) & (touch all) methods to project and enabled the popupmenu
+    March 08, 2000
+      - sorted/commented the source-code. Now everything should be clearer now :)
+    March 06, 2000
+      - added save/load methods to project
+      - optimized the listtree output so that the filesizes will not be recalculated each time
+        the listtree is going to be drawn. So I gained more speed :)
+      - reworked the filetype recogniction (need a complete rewrite!)
+    March 05, 2000
+      - fixed some minor bugs in the depency-scanning methods
+      - reimplemented the project assistent for creating new projects
+    March 04, 2000
+      - added other popup menus to the mainbar toolbars
+    March 02, 2000
+      - added more popup menus for compile/make etc.
+      - removed lots of enforcer hits within the listtree methods/hooks.
+    March 01, 2000
+      - added about window for showing program information
+      - fixed fileinfo window to show correct entry if another entry gets active in the
+        listtree
+    February 29, 2000
+      - added file information window which shows all information about a specific file
+      - added depency information into fileinfo
+    February 28, 2000
+      - added new little toolbar to project object
+      - added support for popupmenu.library (Add/Remove/Touch file(s))
+    February 27, 2000
+      - the same file can`t be added two times anymore
+      - added depency check with scanning of each header and sourcefile
+      - depencies will be saved into a seperated list
+    February 25, 2000
+      - finished the whole rewrite of AmIDE with BOOPSI. Now it`s time to get new features
+        and bugfixes into AmIDE
+    February 24, 2000
+      - added MessageBrowser Class
+    February 23, 2000
+      - 90% of all old parts are now completly rewritten in BOOPSI
+        also the multiple project windows are working now -> OO rulez ! :)
+
+    December 1999-February 2000
+      - ... puh was on holiday in Australia ... back in cold Germany :((
+    August 1999
+      - started to rewrite the whole source in BOOPSI language
+    July 1999
+      - the project was nearly dead because the sourcecode was getting to complicated,
+        also I wanted to add multiple project windows what is nearly impossible within an
+        non-object oriented environment. -> BOOPSI is the solution :)
+
+0.1ß (January-July 1999)
+    - drag&drop in listtree works now and also with respect to filetypes.
+    - modified the construction hook for better string allocation
+    - now the listtree displays the correct text and codesize for folders and with
+      a different color.
+    - the listtree now also shows the current filesize and codesize of a module.
+    - finished the first working betaversion with NList and Listtree class.
+    - added some nice NList images to show differences between Warnings and
+      Errors.
+    - optimized the pipe mechanism to gain more speed and to suppress the CON:
+      output.
+    - The pipe mechanism now works correctly (thanks to Olaf Barthel and Andrei
+      Chereshnev)
+
+0.01ß (August-December 1998)
+    - started to think about the layout of the GUI and the PIPE mechanism to
+      get the output of SAS/C

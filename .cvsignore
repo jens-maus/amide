@@ -1,0 +1,11 @@
+*.o
+*.elf
+*.gst
+*.info
+*.lnk
+*.map
+*.debug
+*.dump
+AmIDE
+AmIDE_locale.c
+AmIDE_locale.h

@@ -1,0 +1,13 @@
+---------------------------
+AmIDE Open Source - BUGLIST
+---------------------------
+
+$Id$
+$Source$
+
+--
+
+* if a project is located on a volume with a name with a space in, such
+  as for an example test "Ram Disk" then amide goes silly and fails
+  doing things because it tries to use the path without quotes around
+  it. (Mike Carter)
